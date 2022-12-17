@@ -32,7 +32,7 @@
 
 
 
-                <div class="mt-5 flex flex-col h-[65vh] justify-between
+                <div class="hidden mb-5 mt-5 flex-col h-[68vh] justify-between
                     items-center partiemilieu1">
                     <div class="flex flex-col justify-between items-center
                         text-white">
@@ -41,7 +41,7 @@
                     </div>
                     <div class="meteo flex justify-between items-center">
                         <h2 class="text-8xl text-white font-bold">19°</h2>
-                        <div class="conditions ml-14 flex flex-col">
+                        <div class="conditions ml-14 mb-5 flex flex-col">
                             <img class="h-24 mb-5" src="img/sunny.svg"
                                 alt="conditions-meteo">
                             <h3 class="text-2xl text-white font-bold">Ensoleillé</h3>
@@ -51,69 +51,79 @@
 
 
 
-                <div class="hidden partiemilieu2">
-                    <div class="ojd">
-                        <div class="cond-meteo">
-                            <img src="" alt="conditions-meteo">
-                            <div class="mto">
-                                <h3>Aujourd'hui</h3>
+                <div class="container h-[68vh] w-auto mb-5 mt-5 partiemilieu2
+                    text-white flex flex-col ">
+                    <div class="ojd h-[65%]">
+                        <div class="pt-3 pb-5 cond-meteo flex h-auto w-96 mx-auto items-center justify-between border-b-2">
+                            <img class="h-28" src="img/sunny.svg"
+                                alt="conditions-meteo">
+                            <div class="mto >
+                                <h3 class="text-xl font-light">Aujourd'hui</h3>
                                 <div id="mto">
-                                    <p>19 <span>/10°</span></p>
+                                    <p class="text-8xl leading-[5rem] font-semibold">19<span class="text-5xl font-normal text-gray-400">/10°</span></p>
                                 </div>
-                                <p>Ensoleillé</p>
+                                <p class="leading-10 font-normal text-gray-400">Ensoleillé</p>
                             </div>
                         </div>
-                        <div class="details">
-                            <div class="humidity">
-                                <img src="" alt="humidity-icon">
-                                <p>20 %</p>
-                                <p>Humidité</p>
+                        <div class="details mt-5 h-auto w-96 mx-auto flex  justify-between">
+                            <div class="humidity flex flex-col items-center">
+                                <img class="h-6" src="img/humidity.svg" alt="humidity-icon">
+                                <p class="text-xl pt-3 leading-4"> 20 %</p>
+                                <p class="font-light">Humidité</p>
                             </div>
-                            <div class="precipitations">
-                                <img src="" alt="precipitations-icon">
-                                <p>16 %</p>
-                                <p>Précipitations</p>
+                            <div class="precipitations flex flex-col items-center">
+                                <img class="h-6" src="img/precipitations.svg"
+                                    alt="precipitations-icon">
+                                <p class="text-xl pt-3 leading-4">16 %</p>
+                                <p class="font-light">Précipitations</p>
                             </div>
-                            <div class="vent">
-                                <img src="" alt="vent-icon">
-                                <p>9 km/h</p>
-                                <p>Vent</p>
+                            <div class="vent  flex flex-col items-center">
+                                <img class="h-6" src="img/vent.svg" alt="vent-icon">
+                                <p class="text-xl pt-3 leading-4">9 km/h</p>
+                                <p class="font-light">Vent</p>
                             </div>
                         </div>
                     </div>
-                    <div class="semaine">
-                        <div class="j1">
-                            <h3>Jeudi</h3>
-                            <img src="" alt="icon-j1">
-                            <p>19 <span>/10°</span></p>
+                        <div class="semaine h-[40%] mt-3 w-[100%]">
+                        <div class="ensembl flex">
+                            <div class="j1 w-[50%] p-2 mr-2 mb-3 flex flex-col items-center">
+                                <h3>Jeudi</h3>
+                                <img class="h-10" src="img/sunny.svg" alt="icon-j1">
+                                <p>19<span class="text-xs text-gray-400">/10°</span></p>
+                            </div>
+                            <div class="j2 w-[50%] p-2 ml-1 mb-3 flex flex-col items-center">
+                                <h3>Vendredi</h3>
+                                <img class="h-10" src="img/sunny.svg" alt="icon-j2">
+                                <p>19<span class="text-xs text-gray-400">/10°</span></p>
+                            </div>
                         </div>
-                        <div class="j2">
-                            <h3>Vendredi</h3>
-                            <img src="" alt="icon-j2">
-                            <p>19 <span>/10°</span></p>
+                        
+                        <div class="ens flex">
+                            <div class="j3 w-[50%] p-2 mr-2 flex flex-col items-center">
+                                <h3>Samedi</h3>
+                                <img class="h-10" src="img/sunny.svg" alt="icon-j3">
+                                <p>19<span class="text-xs text-gray-400">/10°</span></p>
+                            </div>
+                            <div class="j4 w-[50%] p-2 ml-1 flex flex-col items-center">
+                                <h3>Dimanche</h3>
+                                <img class="h-10" src="img/sunny.svg" alt="icon-j4">
+                                <p>19<span class="text-xs text-gray-400">/10°</span></p>
+                            </div>
                         </div>
-                        <div class="j3">
-                            <h3>Samedi</h3>
-                            <img src="" alt="icon-j3">
-                            <p>19 <span>/10°</span></p>
-                        </div>
-                        <div class="j4">
-                            <h3>Dimanche</h3>
-                            <img src="" alt="icon-j4">
-                            <p>19 <span>/10°</span></p>
-                        </div>
+                        
                     </div>
                 </div>
 
 
 
                 <div class="partieinf">
-                    <div class="mt-10 mb-2 w-[100%] h-[2px] bg-white deco1"></div>
+                    <div class=" mb-2 w-[100%] h-[3px] bg-white deco1"></div>
                     <div class="search w-full flex justify-between">
                         <input class="text-bleuik w-[74%] h-20" type="text"
                             name="search"
                             placeholder="ex: Nice">
-                        <button class="w-[24%] border-0 calendrier h-20 transition-all">
+                        <button class="w-[24%] border-0 calendrier h-20
+                            transition-all">
                         </button>
                     </div>
                 </div>

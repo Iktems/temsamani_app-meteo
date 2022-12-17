@@ -40,3 +40,10 @@ input[type=text] {
 .accueil1:hover {
     @apply bg-bleuik
 }
+
+.ojd, .j1, .j2, .j3, .j4 {
+background: rgba(25, 25, 61, 0.59);
+box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+backdrop-filter: blur(8.2px);
+-webkit-backdrop-filter: blur(8.2px);
+}
