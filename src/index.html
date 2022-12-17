@@ -3,43 +3,55 @@
     <head>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <link rel="stylesheet" href="flowbite.min.css" />
-        <link rel="stylesheet" href="output.css" />
+        <link rel="stylesheet" href="/dist/flowbite.min.css" />
+        <link rel="stylesheet" href="/dist/output.css" />
+
         <title>TEMSAMANI Ikrame - App Méteo</title>
     </head>
-    <body>
-        <main>
-            <img class="fond" src="" alt="sunrise/sunset-fond">
+    <body class="bg-bleuik">
+        <div class=" mx-auto relative overflow-hidden
+            h-[100vh] w-[100%] sm:h-auto sm:w-[400px]">
+            <img class="object-bottom h-[100vh] w-screen
+                object-cover fond" src="img/sunset.svg"
+                alt="sunrise/sunset-fond">
 
-            <div class="accueil">
+            <div class="absolute top-0 container accueil">
 
-                <div class="partiesup">
-                    <div class="location">
-                        <img src="" alt="icon-location">
-                        <h1 id="location">Bruxelles</h1>
+                <div class="mt-10 flex flex-col align-middle
+                    partiesup">
+                    <div class="location flex justify-center mb-5">
+                        <img class="h-8 w-auto mr-2" src="img/location.svg"
+                            alt="icon-location">
+                        <h1 class="text-3xl text-white font-bold uppercase"
+                            id="location">Bruxelles</h1>
                     </div>
-                    <div class="deco1"></div>
-                    <div class="deco2"></div>
-                    <div class="deco3"></div>
+                    <div class="w-full h-[2px] bg-white deco1"></div>
+                    <div class="w-[50%] h-[10px] bg-white deco2"></div>
+                    <div class="w-full h-[2px] bg-white deco3"></div>
                 </div>
 
 
 
-                <div class="partiemilieu1">
-                    <p class="date">Mercredi, 14 décembre 2022</p>
-                    <p class="heure">11:01 PM</p>
-                    <div class="meteo">
-                        <h2>19°</h2>
-                        <div class="conditions">
-                            <img src="" alt="conditions-meteo">
-                            <h3>Ensoleillé</h3>
+                <div class="mt-5 flex flex-col h-[65vh] justify-between
+                    items-center partiemilieu1">
+                    <div class="flex flex-col justify-between items-center
+                        text-white">
+                        <p class="date">Mercredi, 14 décembre 2022</p>
+                        <p class="heure text-3xl font-semibold">11:01 PM</p>
+                    </div>
+                    <div class="meteo flex justify-between items-center">
+                        <h2 class="text-8xl text-white font-bold">19°</h2>
+                        <div class="conditions ml-14 flex flex-col">
+                            <img class="h-24 mb-5" src="img/sunny.svg"
+                                alt="conditions-meteo">
+                            <h3 class="text-2xl text-white font-bold">Ensoleillé</h3>
                         </div>
                     </div>
                 </div>
 
 
 
-                <div class="partiemilieu2">
+                <div class="hidden partiemilieu2">
                     <div class="ojd">
                         <div class="cond-meteo">
                             <img src="" alt="conditions-meteo">
@@ -96,18 +108,18 @@
 
 
                 <div class="partieinf">
-                    <div class="deco1"></div>
-                    <div class="search">
-                        <form>
-                            <input type="text" name="search"
-                                placeholder="Search..">
-                        </form>
-                        <button id="calendrier accueil"></button>
+                    <div class="mt-10 mb-2 w-[100%] h-[2px] bg-white deco1"></div>
+                    <div class="search w-full flex justify-between">
+                        <input class="text-bleuik w-[74%] h-20" type="text"
+                            name="search"
+                            placeholder="ex: Nice">
+                        <button class="w-[24%] border-0 calendrier h-20 transition-all">
+                        </button>
                     </div>
                 </div>
 
             </div>
-        </main>
+        </div>
 
         <script src="js/jquery-3.6.1.min.js"></script>
         <script src="js/flowbite.js"></script>

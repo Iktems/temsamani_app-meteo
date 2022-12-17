@@ -3,8 +3,9 @@ module.exports = {
   content: ["./src/**/*.{html,js}"],
   theme: {
     extend: {
-      backgroundImage: {
-        'hero-pattern': "url('img/bg.jpg')",
+      colors: {
+        'bleuik': '#1F1F45',
+        'bgik': '#BCE7F6',
       },
     },
   },

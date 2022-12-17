@@ -2,60 +2,41 @@
 @tailwind components;
 @tailwind utilities;
 
-body{
-    overflow:scroll;
-    margin: 0 auto;
-
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
 }
 
-.slider {
-    width: 100%;
-    height: 550px;
-    position: relative;
-    overflow: hidden;
+input[type=text] {
+    font-size: 18px;
+    background-image: url('/src/img/search.svg');
+    background-size: 9%;
+    background-position: 15px; 
+    background-repeat: no-repeat;
+    padding: 12px 20px 12px 60px;
 }
 
-.ik {
-    height: 100%;
+.calendrier {
+    background-image: url('/src/img/calendrier.svg') !important;
+    background-repeat: no-repeat;
+    background-size: 22%;
+    background-position: center;
+    background-color: #1F1F45;
 }
 
-.ik > div {
-    width: 100%;
-    max-height: 100%;
-    position: absolute;
-    transition: all 1s;
+.calendrier:hover {
+    @apply bg-bgik
 }
 
-@media (min-width: 300px)  {
-    .slider {
-        min-height: 800px;
-    }
-}
-@media (min-width: 768px)  {
-    .slider {
-        height: 381px;
-    }
-
-    img {
-        object-fit: contain;
-    }
-    
-}
-@media (min-width: 1024px)  {
-    .slider {
-        max-height: 100vh;
-        min-height: 50vh;
-    }
-    img {
-        object-fit: contain;
-    }
-
-    body{
-        overflow: hidden;
-    }
+.accueil1 {
+    background-image: url('/src/img/accueil.svg') !important;
+    background-repeat: no-repeat;
+    background-size: 22%;
+    background-position: center;
+    background-color: #BCE7F6;
 }
 
-
-
-
-
+.accueil1:hover {
+    @apply bg-bleuik
+}
