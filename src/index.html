@@ -5,7 +5,6 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <link rel="stylesheet" href="/dist/flowbite.min.css" />
         <link rel="stylesheet" href="/dist/output.css" />
-
         <title>TEMSAMANI Ikrame - App Méteo</title>
     </head>
     <body class="">
@@ -59,31 +58,31 @@
                     text-white flex-col ">
                     <div class="ojd h-[65%]">
                         <div class="pt-3 pb-5 cond-meteo flex h-auto w-96 mx-auto items-center justify-between border-b-2">
-                            <img class="h-28" src="img/sunny.svg"
-                                alt="conditions-meteo">
-                            <div class="mto>
+                            <img class="h-28 w-auto " src="img/sunny.svg"
+                                alt="">
+                            <div class="mto">
                                 <h3 class="text-xl font-light">Aujourd'hui</h3>
                                 <div id="mto w-auto">
-                                    <p class="text-8xl leading-[5rem] font-semibold">19<span class="text-5xl font-normal text-gray-400">/10°</span></p>
+                                    <p class="text-8xl leading-[5rem] font-semibold"><span class="max"></span><span class="text-5xl font-normal text-gray-400">/<span class="min"></span>°</span></p>
                                 </div>
-                                <p class="leading-10 font-normal text-gray-400">Ensoleillé</p>
+                                <p class="leading-10 font-normal text-gray-400 cond"></p>
                             </div>
                         </div>
-                        <div class="details mt-5 h-auto w-96 mx-auto flex  justify-between">
+                        <div class="details mt-5 pb-2 h-auto w-96 mx-auto flex  justify-between">
                             <div class="humidity flex flex-col items-center">
                                 <img class="h-6" src="img/humidity.svg" alt="humidity-icon">
-                                <p class="text-xl pt-3 leading-4"> 20 %</p>
+                                <p class="text-xl pt-3 leading-4"><span id="humidity"></span> %</p>
                                 <p class="font-light">Humidité</p>
                             </div>
                             <div class="precipitations flex flex-col items-center">
                                 <img class="h-6" src="img/precipitations.svg"
                                     alt="precipitations-icon">
-                                <p class="text-xl pt-3 leading-4">16 %</p>
+                                <p class="text-xl pt-3 leading-4"><span id="precipitations"></span> mm</p>
                                 <p class="font-light">Précipitations</p>
                             </div>
                             <div class="vent  flex flex-col items-center">
                                 <img class="h-6" src="img/vent.svg" alt="vent-icon">
-                                <p class="text-xl pt-3 leading-4">9 km/h</p>
+                                <p class="text-xl pt-3 leading-4"><span id="vent"></span> km/h</p>
                                 <p class="font-light">Vent</p>
                             </div>
                         </div>

@@ -49,6 +49,16 @@ $(document).ready(function () {
                 $("h3.descri").html(monArray.current_condition.condition);
                 $(".conditions img").attr('src', 'img/' + monArray.current_condition.condition_key + '.png').attr('alt', monArray.current_condition.condition);
 
+                //PARTIE CALENDRIER
+                $(".max").html(monArray.fcst_day_0.tmax);
+                $(".min").html(monArray.fcst_day_0.tmin);
+                $(".cond").html(monArray.current_condition.condition);
+                $(".cond-meteo img").attr('src', 'img/' + monArray.current_condition.condition_key + '.png').attr('alt', monArray.current_condition.condition);
+                $("#humidity").html(monArray.current_condition.humidity);
+                $("#precipitations").html(monArray.fcst_day_0.hourly_data["2H00"].APCPsfc);
+                $("#vent").html(monArray.current_condition.wnd_spd);
+
+
 
                 // doc trouvé sur internet dans un forum de discussions/entraide
                 // Making 2 variable month and day
@@ -120,15 +130,6 @@ $(document).ready(function () {
     } // fonction loadmeteo
 
 
-
-
-
-    // $('#ville').click(function () {
-    //     var ville = $(this).val();
-    //     loadmeteo('https://www.prevision-meteo.ch/services/json/' + ville, "search");
-
-    // }); // click
-
     var v = document.getElementById("ville");
     v.oninput = function () {
         var ville = $('#ville').val();
@@ -163,24 +164,9 @@ $(document).ready(function () {
 
                     var monArray = data.results;
 
-                    //   console.log(data);
-                    //   console.log("______________________");
-                    console.log(data);
-
-                    // monArray.forEach(function(ligne,i) {
-
-
-                    // $('h1').text(data.results[0].formatted_address)
                     setTimeout(() => {
                         $("#location").html(data.results[0].address_components[0].long_name);
                     }, "500")
-
-                    // video à 1h32
-
-
-
-
-                    //    }); // foreach
 
 
                 } // success
