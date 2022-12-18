@@ -6,6 +6,7 @@ module.exports = {
       colors: {
         'bleuik': '#1F1F45',
         'bgik': '#BCE7F6',
+        'mauveik': '#421A3A',
       },
     },
   },

@@ -1,10 +1,10 @@
 $(document).ready(function () {
 
-    
+
     $(".partieinf button.accueil1").hide()
     $(".partiemilieu2").hide()
 
-    $(".partieinf button.calendrier").on("click", function(e){
+    $(".partieinf button.calendrier").on("click", function (e) {
         e.preventDefault()
         $(this).hide()
         $(".partieinf button.accueil1").show()
@@ -12,7 +12,7 @@ $(document).ready(function () {
         $(".partiemilieu1").hide()
     })
 
-    $(".partieinf button.accueil1").on("click", function(e){
+    $(".partieinf button.accueil1").on("click", function (e) {
         e.preventDefault()
         $(this).hide()
         $(".partieinf button.calendrier").show()
@@ -78,6 +78,39 @@ $(document).ready(function () {
                 }, 1000);
 
 
+
+                if (!monArray.current_condition.condition_key.includes('nuit')) {
+                    console.log(monArray.city_info.sunrise)
+                    $("img.fond").attr('src', 'img/sunrise.svg').attr('alt', monArray.city_info.sunrise);
+                    $("body").addClass("bg-mauveik");
+                    $(".partieinf button.calendrier").css("background-color", "#421A3A");
+                    $(".partieinf button.calendrier").hover(function () {
+                        $(this).css("background-color", "pink");
+                    }, function () {
+                        $(this).css("background-color", "#421A3A");
+                    });
+                    $(".partieinf button.accueil1").hover(function () {
+                        $(this).css("background-color", "#421A3A");
+                    }, function () {
+                        $(this).css("background-color", "pink");
+                    });
+                    $(".ojd, .j1, .j2, .j3, .j4").css("background-color", "#421a3a96");
+
+                } else {
+                    console.log(monArray.city_info.sunset)
+                    $("img.fond").attr('src', 'img/sunset.svg').attr('alt', monArray.city_info.sunset);
+                    $("body").addClass("bg-bleuik");
+                    $(".partieinf button.calendrier").hover(function () {
+                        $(this).css("background-color", "#BCE7F6");
+                    }, function () {
+                        $(this).css("background-color", "#1F1F45");
+                    });
+                    $(".partieinf button.accueil1").hover(function () {
+                        $(this).css("background-color", "#1F1F45");
+                    }, function () {
+                        $(this).css("background-color", "#BCE7F6");
+                    });
+                }
 
             } // success
 
