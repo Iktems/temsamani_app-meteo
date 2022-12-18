@@ -1,0 +1,29 @@
+{
+    "theme_color": "#421A3A",
+    "background_color": "#421A3A",
+    "display": "fullscreen",
+    "scope": "/",
+    "start_url": "/index.html",
+    "name": "TEMSAMANI Ikrame - App meteo",
+    "short_name": "app-meteo",
+    "icons": [
+        {
+            "src": "img/icons8-temps-pluvieux-color-96.png",
+            "sizes": "96x96",
+            "type": "image/png",
+            "purpose": "any maskable"
+        },
+        {
+            "src": "img/icons8-temps-pluvieux-color-32.png",
+            "sizes": "32x32",
+            "type": "image/png",
+            "purpose": "any maskable"
+        },
+        {
+            "src": "img/icons8-temps-pluvieux-color-16.png",
+            "sizes": "16x16",
+            "type": "image/png",
+            "purpose": "any maskable"
+        }
+    ]
+}

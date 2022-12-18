@@ -5,6 +5,10 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <link rel="stylesheet" href="/dist/flowbite.min.css" />
         <link rel="stylesheet" href="/dist/output.css" />
+        <link rel='manifest' href='/manifest.webmanifest'>
+        <link rel="apple-touch-icon" href="img/icons8-temps-pluvieux-color-96.png">
+        <link rel='icon' href='img/icons8-temps-pluvieux-color-96.png'>
+        <meta name="theme-color" content="#421A3A"/>
         <title>TEMSAMANI Ikrame - App Méteo</title>
     </head>
     <body class="">
@@ -14,7 +18,14 @@
                 object-cover fond" src="img/sunset.svg"
                 alt="">
 
-            <div class="absolute top-0 container accueil flex flex-col justify-between">
+            <div class="absolute top-0 container accueil flex flex-col
+                justify-between">
+                
+                <!-- 
+                <div class="imagecontainer">
+                    <button class="button" id="btnAdd" style="display:none">Installer l'app</button>
+                    <button class="button" id="btnNoAdd" >Installation impossible sur iOS</button>
+                </div> -->
 
                 <div class="mt-10 flex flex-col align-middle
                     partiesup">
@@ -44,7 +55,8 @@
                     </div>
                     <div class="meteo flex justify-between items-center">
                         <h2 class="text-8xl text-white font-bold temp"><span></span>°</h2>
-                        <div class="conditions ml-14 mb-5 flex flex-col items-center">
+                        <div class="conditions ml-14 mb-5 flex flex-col
+                            items-center">
                             <img class="h-24 w-auto mb-5" src=""
                                 alt="">
                             <h3 class="text-xl text-white font-bold descri"></h3>
@@ -54,61 +66,55 @@
 
 
 
-                <div class="flex container h-[68vh] w-auto mb-5 mt-5 partiemilieu2
+                <div class="flex container h-[68vh] w-auto mb-5 mt-5
+                    partiemilieu2
                     text-white flex-col ">
                     <div class="ojd h-[65%]">
-                        <div class="pt-3 pb-5 cond-meteo flex h-auto w-96 mx-auto items-center justify-between border-b-2">
+                        <div class="pt-3 pb-5 cond-meteo flex h-auto w-96
+                            mx-auto items-center justify-between border-b-2">
                             <img class="h-28 w-auto " src="img/sunny.svg"
                                 alt="">
                             <div class="mto">
                                 <h3 class="text-xl font-light">Aujourd'hui</h3>
                                 <div id="mto w-auto">
-                                    <p class="text-8xl leading-[5rem] font-semibold"><span class="max"></span><span class="text-5xl font-normal text-gray-400">/<span class="min"></span>°</span></p>
+                                    <p class="text-8xl leading-[5rem]
+                                        font-semibold"><span class="max"></span><span
+                                            class="text-5xl font-normal
+                                            text-gray-400">/<span class="min"></span>°</span></p>
                                 </div>
-                                <p class="leading-10 font-normal text-gray-400 cond"></p>
+                                <p class="leading-10 font-normal text-gray-400
+                                    cond"></p>
                             </div>
                         </div>
-                        <div class="details mt-5 pb-2 h-auto w-96 mx-auto flex  justify-between">
+                        <div class="details mt-5 pb-2 h-auto w-96 mx-auto flex
+                            justify-between">
                             <div class="humidity flex flex-col items-center">
-                                <img class="h-6" src="img/humidity.svg" alt="humidity-icon">
-                                <p class="text-xl pt-3 leading-4"><span id="humidity"></span> %</p>
+                                <img class="h-6" src="img/humidity.svg"
+                                    alt="humidity-icon">
+                                <p class="text-xl pt-3 leading-4"><span
+                                        id="humidity"></span> %</p>
                                 <p class="font-light">Humidité</p>
                             </div>
-                            <div class="precipitations flex flex-col items-center">
+                            <div class="precipitations flex flex-col
+                                items-center">
                                 <img class="h-6" src="img/precipitations.svg"
                                     alt="precipitations-icon">
-                                <p class="text-xl pt-3 leading-4"><span id="precipitations"></span> mm</p>
+                                <p class="text-xl pt-3 leading-4"><span
+                                        id="precipitations"></span> mm</p>
                                 <p class="font-light">Précipitations</p>
                             </div>
-                            <div class="vent  flex flex-col items-center">
-                                <img class="h-6" src="img/vent.svg" alt="vent-icon">
-                                <p class="text-xl pt-3 leading-4"><span id="vent"></span> km/h</p>
+                            <div class="vent flex flex-col items-center">
+                                <img class="h-6" src="img/vent.svg"
+                                    alt="vent-icon">
+                                <p class="text-xl pt-3 leading-4"><span
+                                        id="vent"></span> km/h</p>
                                 <p class="font-light">Vent</p>
                             </div>
                         </div>
                     </div>
-                        <div class="semaine h-[100%] mt-3 w-[100%] flex mx-auto flex-wrap">
-                            <!-- <div class="j1 w-[48%] p-2 mr-1 ml-1 mb-3 flex flex-col items-center">
-                                <h3>Jeudi</h3>
-                                <img class="h-10" src="img/sunny.svg" alt="icon-j1">
-                                <p>19<span class="text-xs text-gray-400">/10°</span></p>
-                            </div> -->
-                            <!-- <div class="j1 w-[48%] p-2 mr-1 ml-1 mb-3 flex flex-col items-center">
-                                <h3>Vendredi</h3>
-                                <img class="h-10" src="img/sunny.svg" alt="icon-j2">
-                                <p>19<span class="text-xs text-gray-400">/10°</span></p>
-                            </div>
-                            <div class="j1 w-[48%] p-2 mr-1 ml-1 mb-3 flex flex-col items-center">
-                                <h3>Samedi</h3>
-                                <img class="h-10" src="img/sunny.svg" alt="icon-j3">
-                                <p>19<span class="text-xs text-gray-400">/10°</span></p>
-                            </div>
-                            <div class="j1 w-[48%] p-2 mr-1 ml-1 mb-3 flex flex-col items-center">
-                                <h3>Dimanche</h3>
-                                <img class="h-10" src="img/sunny.svg" alt="icon-j4">
-                                <p>19<span class="text-xs text-gray-400">/10°</span></p>
-                            </div> -->
-                        
+                    <div class="semaine h-[100%] mt-3 w-[100%] flex mx-auto
+                        flex-wrap">
+
                     </div>
                 </div>
 
@@ -117,7 +123,8 @@
                 <div class="partieinf">
                     <div class="mb-2 w-[100%] h-[3px] bg-white deco1"></div>
                     <div class="search w-full flex justify-between">
-                        <input id="ville" class="text-bleuik w-[74%] h-20" type="text"
+                        <input id="ville" class="text-bleuik w-[74%] h-20"
+                            type="text"
                             name="search"
                             placeholder="ex: Nice">
                         <button class="w-[24%] border-0 h-20 calendrier
@@ -133,7 +140,100 @@
         </div>
 
         <script src="js/jquery-3.6.1.min.js"></script>
+        <script src="service-worker.js"></script>
         <script src="js/flowbite.js"></script>
         <script src="js/script.js"></script>
+        <script>
+            // service worker
+            if ('serviceWorker' in navigator) {
+              console.log('CLIENT: service worker registration in progress.');
+              navigator.serviceWorker.register('/service-worker.js').then(function() {
+                console.log('CLIENT: service worker registration complete!');
+              }, function() {
+                console.log('CLIENT: service worker registration failure.');
+              });
+            } else {
+              console.log('CLIENT: service worker is not supported.');
+            }
+            
+            
+            const button = document.getElementById('notifications');
+            button.addEventListener('click', (e) => {
+                e.preventDefault();
+              Notification.requestPermission().then((result) => {
+                if (result === 'granted') {
+                  randomNotification();
+                }
+              });
+            })
+            
+            
+            
+            function randomNotification() {
+              const randomItem = Math.floor(Math.random() * games.length);
+              const notifTitle = games[randomItem].name;
+              const notifBody = `Created by ${games[randomItem].author}.`;
+              const notifImg = `data/img/${games[randomItem].slug}.jpg`;
+              const options = {
+                body: notifBody,
+                icon: notifImg,
+              };
+              new Notification(notifTitle, options);
+              setTimeout(randomNotification, 5000); 
+            }
+            
+            
+            // Initialize deferredPrompt for use later to show browser install prompt.
+            let deferredPrompt;
+            
+            window.addEventListener('beforeinstallprompt', (e) => {
+              // Prevent the mini-infobar from appearing on mobile
+              e.preventDefault();
+              // Stash the event so it can be triggered later.
+              deferredPrompt = e;
+              // Update UI notify the user they can install the PWA
+              showInstallPromotion();
+              // Optionally, send analytics event that PWA install promo was shown.
+              console.log('beforeinstallprompt event was fired: ');
+            })
+            
+            
+            
+            function  showInstallPromotion() {
+             console.log("ok on peut installer");
+            
+               $('#btnAdd').show();
+               $('#btnNoAdd').hide();
+            
+            }
+            
+            var btnAdd = document.getElementById("btnAdd");
+            
+            btnAdd.addEventListener('click', (e) => {
+              // hide our user interface that shows our A2HS button
+              btnAdd.style.display = 'none';
+              // Show the prompt
+              deferredPrompt.prompt();
+              // Wait for the user to respond to the prompt
+              deferredPrompt.userChoice
+                .then((choiceResult) => {
+                  if (choiceResult.outcome === 'accepted') {
+                    console.log('User accepted the A2HS prompt');
+                  } else {
+                    console.log('User dismissed the A2HS prompt');
+                  }
+                  deferredPrompt = null;
+                });
+            });
+            
+            
+            var btnNoAdd = document.getElementById("btnNoAdd");
+            
+            btnNoAdd.addEventListener('click', (e) => {
+             alert("Installation uniquement possible sur Chromium et Android. Si vous ne voyez pas le bouton d'installation vous êtes probablement sur iOS sur mobile ou sur un navigateur non-Chromium sur Desktop.");
+            });
+            
+            
+                </script>
     </body>
 </html>
