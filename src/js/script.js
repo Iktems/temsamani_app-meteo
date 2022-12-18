@@ -1,28 +1,25 @@
 $(document).ready(function () {
 
-    $(".partieinf button").click(function () {
-        $(".partiemilieu1" ).toggle( "slow", function() {
-            $(".partieinf button").removeClass("calendrier").addClass("accueil1");
-            // $(".partiemilieu1").addClass("hidden").removeClass("flex");
-            // $(".partiemilieu2").removeClass("hidden").addClass("flex");
-        });
-    });
-
-    $("button.accueil1").click(function () {
-        $(".partiemilieu2" ).toggle( "slow", function() {
-            $("button.accueil1").removeClass("accueil1").addClass("calendrier");
-            // $(".partiemilieu1").addClass("hidden").removeClass("flex");
-            // $(".partiemilieu2").removeClass("hidden").addClass("flex");
-        });
-    });
     
-    // $("button.accueil1").click(function () {
-    //     $(this).removeClass("accueil1").addClass("calendrier");
-    //     $(".partiemilieu2").removeClass("flex");
-    //     $(".partiemilieu2").addClass("hidden");
-    //     $(".partiemilieu1").addClass("flex");
-    //     $(".partiemilieu1").removeClass("hidden");
-    // });
+    $(".partieinf button.accueil1").hide()
+    $(".partiemilieu2").hide()
+
+    $(".partieinf button.calendrier").on("click", function(e){
+        e.preventDefault()
+        $(this).hide()
+        $(".partieinf button.accueil1").show()
+        $(".partiemilieu2").show()
+        $(".partiemilieu1").hide()
+    })
+
+    $(".partieinf button.accueil1").on("click", function(e){
+        e.preventDefault()
+        $(this).hide()
+        $(".partieinf button.calendrier").show()
+        $(".partiemilieu1").show()
+        $(".partiemilieu2").hide()
+    })
+
 
     function loadmeteo(url) {
         $.ajax({
