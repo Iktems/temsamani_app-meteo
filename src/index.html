@@ -15,7 +15,7 @@
                 object-cover fond" src="img/sunset.svg"
                 alt="sunrise/sunset-fond">
 
-            <div class="absolute top-0 container accueil">
+            <div class="absolute top-0 container accueil flex flex-col justify-between">
 
                 <div class="mt-10 flex flex-col align-middle
                     partiesup">
@@ -23,7 +23,7 @@
                         <img class="h-8 w-auto mr-2" src="img/location.svg"
                             alt="icon-location">
                         <h1 class="text-3xl text-white font-bold uppercase"
-                            id="location">Bruxelles</h1>
+                            id="location"></h1>
                     </div>
                     <div class="w-full h-[2px] bg-white deco1"></div>
                     <div class="w-[50%] h-[10px] bg-white deco2"></div>
@@ -32,34 +32,38 @@
 
 
 
-                <div class="hidden mb-5 mt-5 flex-col h-[68vh] justify-between
+                <div class="flex mb-5 mt-5 flex-col h-[68vh] justify-between
                     items-center partiemilieu1">
                     <div class="flex flex-col justify-between items-center
                         text-white">
-                        <p class="date">Mercredi, 14 décembre 2022</p>
-                        <p class="heure text-3xl font-semibold">11:01 PM</p>
+                        <p class="date"></p>
+                        <div class="flex">
+                            <p class="heure text-3xl font-semibold"></p>
+                            <p class="minutes text-3xl font-semibold"></span>
+                        </div>
+
                     </div>
                     <div class="meteo flex justify-between items-center">
-                        <h2 class="text-8xl text-white font-bold">19°</h2>
-                        <div class="conditions ml-14 mb-5 flex flex-col">
-                            <img class="h-24 mb-5" src="img/sunny.svg"
-                                alt="conditions-meteo">
-                            <h3 class="text-2xl text-white font-bold">Ensoleillé</h3>
+                        <h2 class="text-8xl text-white font-bold temp"><span></span>°</h2>
+                        <div class="conditions ml-14 mb-5 flex flex-col items-center">
+                            <img class="h-24 w-auto mb-5" src=""
+                                alt="">
+                            <h3 class="text-xl text-white font-bold descri"></h3>
                         </div>
                     </div>
                 </div>
 
 
 
-                <div class="container h-[68vh] w-auto mb-5 mt-5 partiemilieu2
-                    text-white flex flex-col ">
+                <div class="hidden container h-[68vh] w-auto mb-5 mt-5 partiemilieu2
+                    text-white flex-col ">
                     <div class="ojd h-[65%]">
                         <div class="pt-3 pb-5 cond-meteo flex h-auto w-96 mx-auto items-center justify-between border-b-2">
                             <img class="h-28" src="img/sunny.svg"
                                 alt="conditions-meteo">
-                            <div class="mto >
+                            <div class="mto>
                                 <h3 class="text-xl font-light">Aujourd'hui</h3>
-                                <div id="mto">
+                                <div id="mto w-auto">
                                     <p class="text-8xl leading-[5rem] font-semibold">19<span class="text-5xl font-normal text-gray-400">/10°</span></p>
                                 </div>
                                 <p class="leading-10 font-normal text-gray-400">Ensoleillé</p>
@@ -117,9 +121,9 @@
 
 
                 <div class="partieinf">
-                    <div class=" mb-2 w-[100%] h-[3px] bg-white deco1"></div>
+                    <div class="mb-2 w-[100%] h-[3px] bg-white deco1"></div>
                     <div class="search w-full flex justify-between">
-                        <input class="text-bleuik w-[74%] h-20" type="text"
+                        <input id="ville" class="text-bleuik w-[74%] h-20" type="text"
                             name="search"
                             placeholder="ex: Nice">
                         <button class="w-[24%] border-0 calendrier h-20

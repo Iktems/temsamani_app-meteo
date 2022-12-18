@@ -1,107 +1,149 @@
-// $(document).ready(function () {
+$(document).ready(function () {
 
-//     // LIEN VERS MON GOOGLE SHEETS : https://docs.google.com/spreadsheets/d/1_Widjy7eFcDozJ_yi1nFFB-c4DvSiCHNj4bYWF9FpYA/edit#gid=0
+    function loadmeteo(url) {
+        $.ajax({
+            // 1) on définit le fichier vers lequel on envoye la requête POST
+            url: url,
 
-//     $.getJSON({
-//         // 1) on définit le fichier vers lequel on envoye la requête POST , 
+            // 2/ on spécifie la méthode  
+            type: 'GET', // Le type de la requête HTTP, ici  POST
 
-//         url: 'https://sheets.googleapis.com/v4/spreadsheets/1_Widjy7eFcDozJ_yi1nFFB-c4DvSiCHNj4bYWF9FpYA/values/students?key=AIzaSyAJiGonV9z_YJkpJPb9So3iJIyzXS8KAbU',
+            // 3) on définit les variables POST qui sont ennvoyées au fichier .php qui les récupère sous forme de $_POST["nom"] 
+            data: {}, // On fait passer nos variables au script coucou.php
 
-//         // 2/ on spécifie la méthode  
-//         type: 'GET', // Le type de la requête HTTP, ici  GET
+            // 4) format de retour du fichier php dans "data"
+            dataType: 'json',
 
-//         // 4) format de retour du fichier php dans "data"
-//         dataType: 'json',
+            // 5) fonction à effectuer en cas de succès
+            success: function (monArray) { //  contient le HTML renvoyé
 
-//         // 5) fonction à effectuer en cas de succès
-//         success: function (data) { //  contient le HTML renvoyé
-//             // console.log(data);
-
-//             var html = "";
-
-
-//             console.log(data.values);
-
-//             for (i = 1; i < data.values.length; i++) {
-
-//                 nom = data.values[i][0];
-//                 prenom = data.values[i][1];
-//                 statut = data.values[i][2];
-//                 titre = data.values[i][3];
-//                 avis = data.values[i][4];
-//                 image = data.values[i][5];
-//                 id = data.values[i][6];
-
-//                 html += '<div class="ikik flex flex-col md:flex-row" style="transform: translateX(-100%)">';
-//                 html += '<div class="mt-14 md:flex">';
-//                 html += '<div class="relative img ">';
-//                 html += '<img class=" lg:w-full sm:w-96 xl:h-96 h-full object-contain" src="img/' + image + '" alt="image of profile" class="w-full h-full flex-shrink-0 object-fit object-cover shadow-lg rounded"/>';
-//                 html += '<div class="w-12 md:flex hidden items-center justify-center absolute top-0 -mr-[15px] -mt-[13px] right-0 h-12 bg-amber-200 norounded-full font-extrabold text-xl text-amber-800">' + id + '</div>';
-//                 html += '</div>';
-//                 html += '</div>';
-//                 html += '<div class="md:w-1/3 lg:w-1/3 xl:ml-32 md:ml-20 md:mt-12 mt-2 flex flex-col justify-between">';
-//                 html += '<div>';
-//                 html += '<h1 class=" mt-12 md:mt-0 text-3xl font-semibold text-gray-800  ">' + titre + '</h1>';
-//                 html += '<p class="text-base font-medium leading-6 mt-4 text-gray-600   ">' + avis + '</p>';
-//                 html += '</div>';
-//                 html += '<div class="md:mt-0 mt-8">';
-//                 html += '<p class="text-lg font-medium leading-4 text-gray-800  ">' + nom + '<span> ' + prenom + '</span></p>';
-//                 html += '<p class="text-base leading-4 mt-2 mb-4 text-gray-600   ">' + statut + '</p>';
-//                 html += '</div>';
-//                 html += '</div>';
-//                 html += '</div>';
-//                 html += '</div>';
+                console.log(monArray);
 
 
-//             } // for
+                var html = '';
+                console.log(monArray);
 
-//             $('.ik').html(html);
+                $("#location").html(monArray.city_info.name);
+                $("h2.temp span").html(monArray.current_condition.tmp);
+                $("h3.descri").html(monArray.current_condition.condition);
+                $(".conditions img").attr('src', 'img/' + monArray.current_condition.condition_key + '.png').attr('alt', monArray.current_condition.condition);
 
-//             setTimeout(() => {
-//                 gsap.to('.img', {
-//                     duration: .75,
-//                     x: 20,
-//                     opacity: 1,
-//                     // stagger: 0.1
-//                 })
-//             }, "500")
+
+                // doc trouvé sur internet dans un forum de discussions/entraide
+                // Making 2 variable month and day
+                var mois = ["janvier", "février", "mars", "avril", "mai", "juin", "juillet", "août", "septembre", "octobre", "novembre", "décembre"];
+                var jours = ["Dimanche,", "Lundi,", "Mardi,", "Mercredi,", "Jeudi,", "Vendredi,", "Samedi,"]
+
+                // make single object
+                var datejr = new Date();
+                // make current time
+                datejr.setDate(datejr.getDate());
+                // setting date and time
+                $('.date').html(jours[datejr.getDay()] + " " + datejr.getDate() + ' ' + mois[datejr.getMonth()] + ' ' + datejr.getFullYear());
+
+                setInterval(function () {
+                    // Create a datejr() object and extract the minutes of the current time on the visitor's
+                    var minutes = new Date().getMinutes();
+                    // Add a leading zero to the minutes value
+                    $("p.minutes").html((minutes < 10 ? "0" : "") + minutes);
+                }, 1000);
+
+                setInterval(function () {
+                    // Create a datejr() object and extract the hours of the current time on the visitor's
+                    var hours = new Date().getHours();
+                    // Add a leading zero to the hours value
+                    $("p.heure").html((hours < 10 ? "0" : "") + hours +':');
+                    
+                }, 1000);
 
 
 
-//             // Ce slider a été fournis avec le design sur tailwinduikit
-//             let slides = document.querySelectorAll(".ik>div");
-//             let slideSayisi = slides.length;
-//             let prev = document.getElementById("prev");
-//             let next = document.getElementById("next");
-//             for (let index = 0; index < slides.length; index++) {
-//                 const element = slides[index];
-//                 element.style.transform = "translateX(" + 100 * index + "%)";
-//             }
-//             let loop = 0 + 1000 * slideSayisi;
-
-//             function goNext() {
-//                 loop++;
-//                 for (let index = 0; index < slides.length; index++) {
-//                     const element = slides[index];
-//                     element.style.transform = "translateX(" + 100 * (index - (loop % slideSayisi)) + "%)";
-//                 }
-//             }
-
-//             function goPrev() {
-//                 loop--;
-//                 for (let index = 0; index < slides.length; index++) {
-//                     const element = slides[index];
-//                     element.style.transform = "translateX(" + 100 * (index - (loop % slideSayisi)) + "%)";
-//                 }
-//             }
-
-//             next.addEventListener("click", goNext);
-//             prev.addEventListener("click", goPrev);
-
-//         } // success
+            } // success
 
 
-//     }); // intro ajax function
+        }); //  ajax function         
+
+    } // fonction loadmeteo
 
 
-// });
+
+
+
+    // $('#ville').click(function () {
+    //     var ville = $(this).val();
+    //     loadmeteo('https://www.prevision-meteo.ch/services/json/' + ville, "search");
+
+    // }); // click
+
+    var v = document.getElementById("ville");
+    v.oninput = function () {
+        var ville = $('#ville').val();
+        loadmeteo('https://www.prevision-meteo.ch/services/json/' + ville, "search");
+    }
+
+
+
+    if (navigator.geolocation) {
+
+        navigator.geolocation.getCurrentPosition(function (position) {
+
+            var lat = position.coords.latitude;
+            var lng = position.coords.longitude;
+
+            loadmeteo('https://www.prevision-meteo.ch/services/json/lat=' + lat + 'lng=' + lng);
+
+            $.ajax({
+                // 1) on définit le fichier vers lequel on envoye la requête POST , 
+
+                url: 'https://maps.googleapis.com/maps/api/geocode/json?latlng=' + lat + ',' + lng + '&result_type=locality&key=AIzaSyCKcTQ-zk45bUB2U-0mIhYELU1CKbrSFTI',
+                //https://developers.google.com/maps/documentation/geocoding/requests-reverse-geocoding
+
+                // 2/ on spécifie la méthode  
+                type: 'GET', // Le type de la requête HTTP, ici  GET
+
+                // 4) format de retour du fichier php dans "data"
+                dataType: 'json',
+
+                // 5) fonction à effectuer en cas de succès
+                success: function (data) { //  contient le HTML renvoyé
+
+                    var monArray = data.results;
+
+                    //   console.log(data);
+                    //   console.log("______________________");
+                    console.log(data);
+
+                    // monArray.forEach(function(ligne,i) {
+
+
+                    // $('h1').text(data.results[0].formatted_address)
+                    setTimeout(() => {
+                        $("#location").html(data.results[0].address_components[0].long_name);
+                    }, "500")
+
+                    // video à 1h32
+
+
+
+
+                    //    }); // foreach
+
+
+                } // success
+            }); // intro ajax function  
+
+        })
+
+    } else {
+
+        console.log("Browser doesn't support geolocalisation !")
+
+    }
+
+
+
+
+
+
+
+}); // ready
