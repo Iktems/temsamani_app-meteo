@@ -32,7 +32,7 @@ $(document).ready(function () {
                 // doc trouvé sur internet dans un forum de discussions/entraide
                 // Making 2 variable month and day
                 var mois = ["janvier", "février", "mars", "avril", "mai", "juin", "juillet", "août", "septembre", "octobre", "novembre", "décembre"];
-                var jours = ["Dimanche,", "Lundi,", "Mardi,", "Mercredi,", "Jeudi,", "Vendredi,", "Samedi,"]
+                var jours = ["Dimanche,", "Lundi,", "Mardi,", "Mercredi,", "Jeudi,", "Vendredi,", "Samedi,"];
 
                 // make single object
                 var datejr = new Date();
