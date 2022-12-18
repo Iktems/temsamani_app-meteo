@@ -1132,7 +1132,7 @@ video {
 
 input[type=text] {
   font-size: 18px;
-  background-image: url('/src/img/search.svg');
+  background-image: url('img/search.svg');
   background-size: 9%;
   background-position: 15px;
   background-repeat: no-repeat;
@@ -1140,7 +1140,7 @@ input[type=text] {
 }
 
 .calendrier {
-  background-image: url('/src/img/calendrier.svg');
+  background-image: url('img/calendrier.svg');
   background-repeat: no-repeat;
   background-size: 22%;
   background-position: center;
@@ -1153,7 +1153,7 @@ input[type=text] {
 }
 
 .accueil1 {
-  background-image: url('/src/img/accueil.svg');
+  background-image: url('img/accueil.svg');
   background-repeat: no-repeat;
   background-size: 22%;
   background-position: center;
