@@ -52,8 +52,8 @@ $(document).ready(function () {
                     // Create a datejr() object and extract the hours of the current time on the visitor's
                     var hours = new Date().getHours();
                     // Add a leading zero to the hours value
-                    $("p.heure").html((hours < 10 ? "0" : "") + hours +':');
-                    
+                    $("p.heure").html((hours < 10 ? "0" : "") + hours + ':');
+
                 }, 1000);
 
 
