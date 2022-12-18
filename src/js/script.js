@@ -1,5 +1,29 @@
 $(document).ready(function () {
 
+    $(".partieinf button").click(function () {
+        $(".partiemilieu1" ).toggle( "slow", function() {
+            $(".partieinf button").removeClass("calendrier").addClass("accueil1");
+            // $(".partiemilieu1").addClass("hidden").removeClass("flex");
+            // $(".partiemilieu2").removeClass("hidden").addClass("flex");
+        });
+    });
+
+    $("button.accueil1").click(function () {
+        $(".partiemilieu2" ).toggle( "slow", function() {
+            $("button.accueil1").removeClass("accueil1").addClass("calendrier");
+            // $(".partiemilieu1").addClass("hidden").removeClass("flex");
+            // $(".partiemilieu2").removeClass("hidden").addClass("flex");
+        });
+    });
+    
+    // $("button.accueil1").click(function () {
+    //     $(this).removeClass("accueil1").addClass("calendrier");
+    //     $(".partiemilieu2").removeClass("flex");
+    //     $(".partiemilieu2").addClass("hidden");
+    //     $(".partiemilieu1").addClass("flex");
+    //     $(".partiemilieu1").removeClass("hidden");
+    // });
+
     function loadmeteo(url) {
         $.ajax({
             // 1) on définit le fichier vers lequel on envoye la requête POST

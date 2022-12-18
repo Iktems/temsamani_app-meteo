@@ -18,7 +18,7 @@ input[type=text] {
 }
 
 .calendrier {
-    background-image: url('/src/img/calendrier.svg') !important;
+    background-image: url('/src/img/calendrier.svg');
     background-repeat: no-repeat;
     background-size: 22%;
     background-position: center;
@@ -30,7 +30,7 @@ input[type=text] {
 }
 
 .accueil1 {
-    background-image: url('/src/img/accueil.svg') !important;
+    background-image: url('/src/img/accueil.svg');
     background-repeat: no-repeat;
     background-size: 22%;
     background-position: center;
