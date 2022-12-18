@@ -99,7 +99,6 @@ $(document).ready(function () {
                 }, 1000);
 
                 if (!monArray.current_condition.condition_key.includes('nuit')) {
-                    console.log(monArray.city_info.sunrise)
                     $("img.fond").attr('src', 'img/sunrise.svg').attr('alt', monArray.city_info.sunrise);
                     $("body").addClass("bg-mauveik");
                     $(".partieinf button.calendrier").css("background-color", "#421A3A");
@@ -118,7 +117,6 @@ $(document).ready(function () {
 
 
                 } else {
-                    console.log(monArray.city_info.sunset)
                     $("img.fond").attr('src', 'img/sunset.svg').attr('alt', monArray.city_info.sunset);
                     $("body").addClass("bg-bleuik");
                     $(".partieinf button.calendrier").hover(function () {
