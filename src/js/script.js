@@ -41,7 +41,6 @@ $(document).ready(function () {
                 console.log(monArray);
 
 
-                var html = '';
                 console.log(monArray);
 
                 $("#location").html(monArray.city_info.name);
@@ -58,6 +57,19 @@ $(document).ready(function () {
                 $("#precipitations").html(monArray.fcst_day_0.hourly_data["2H00"].APCPsfc);
                 $("#vent").html(monArray.current_condition.wnd_spd);
 
+                var html = '';
+                var j = '';
+
+                for (j = 1; j < 5; j++) {
+
+                    html += `<div class="j1 w-[48%] p-2 mr-1 ml-1 mb-3 flex flex-col items-center">`;
+                    html += `<h3>` + monArray['fcst_day_' + j].day_long + `</h3>`;
+                    html += `<img class="h-10" src="img/` + monArray['fcst_day_' + j].condition_key + `.png" alt="conditions">`;
+                    html += `<p>` + monArray['fcst_day_' + j].tmax + `<span class="text-xs text-gray-400">/<span>` + monArray['fcst_day_' + j].tmin + `</span>°</span></p>`;
+                    html += `</div>`
+                    $(".semaine").html(html);
+
+                }
 
 
                 // doc trouvé sur internet dans un forum de discussions/entraide
@@ -179,11 +191,6 @@ $(document).ready(function () {
         console.log("Browser doesn't support geolocalisation !")
 
     }
-
-
-
-
-
 
 
 }); // ready
