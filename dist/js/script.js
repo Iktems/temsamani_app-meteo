@@ -38,10 +38,9 @@ $(document).ready(function () {
             // 5) fonction à effectuer en cas de succès
             success: function (monArray) { //  contient le HTML renvoyé
 
-                console.log(monArray);
-
-
-                console.log(monArray);
+                if (monArray.city_info.name == "Bruxelles 1") {
+                    monArray.city_info.name = "Bruxelles";
+                }
 
                 $("#location").html(monArray.city_info.name);
                 $("h2.temp span").html(monArray.current_condition.tmp);
@@ -99,8 +98,6 @@ $(document).ready(function () {
 
                 }, 1000);
 
-
-
                 if (!monArray.current_condition.condition_key.includes('nuit')) {
                     console.log(monArray.city_info.sunrise)
                     $("img.fond").attr('src', 'img/sunrise.svg').attr('alt', monArray.city_info.sunrise);
@@ -148,7 +145,10 @@ $(document).ready(function () {
     var v = document.getElementById("ville");
     v.oninput = function () {
         var ville = $('#ville').val();
-        loadmeteo('https://www.prevision-meteo.ch/services/json/' + ville, "search");
+        if (ville == 'bruxelles') {
+            ville = "bruxelles-1"
+        }
+        loadmeteo('https://www.prevision-meteo.ch/services/json/' + ville);
     }
 
 
