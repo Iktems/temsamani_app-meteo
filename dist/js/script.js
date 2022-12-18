@@ -118,6 +118,8 @@ $(document).ready(function () {
                     });
                     $(".ojd, .j1, .j2, .j3, .j4").css("background-color", "#421a3a96");
 
+
+
                 } else {
                     console.log(monArray.city_info.sunset)
                     $("img.fond").attr('src', 'img/sunset.svg').attr('alt', monArray.city_info.sunset);
@@ -132,6 +134,7 @@ $(document).ready(function () {
                     }, function () {
                         $(this).css("background-color", "#BCE7F6");
                     });
+
                 }
 
             } // success

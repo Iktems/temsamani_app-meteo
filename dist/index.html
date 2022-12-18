@@ -3,11 +3,15 @@
     <head>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <link rel="stylesheet" href="flowbite.min.css" />
         <link rel="stylesheet" href="output.css" />
-        <link rel='manifest' href='manifest.webmanifest'>
-        <link rel="apple-touch-icon" href="img/icons8-temps-pluvieux-color-96.png">
-        <link rel='icon' href='img/icons8-temps-pluvieux-color-96.png'>
+        <link rel='manifest' href='/manifest.webmanifest'>
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link
+            href="https://fonts.googleapis.com/css2?family=Lato:wght@100;700&display=swap"
+            rel="stylesheet">
+        <link rel="apple-touch-icon" href="img/icon.png">
+        <link rel='icon' href='img/icon.png'>
         <meta name="theme-color" content="#421A3A"/>
         <title>TEMSAMANI Ikrame - App Méteo</title>
     </head>
@@ -20,12 +24,23 @@
 
             <div class="absolute top-0 container accueil flex flex-col
                 justify-between">
-                
-                <!-- 
-                <div class="imagecontainer">
-                    <button class="button" id="btnAdd" style="display:none">Installer l'app</button>
-                    <button class="button" id="btnNoAdd" >Installation impossible sur iOS</button>
-                </div> -->
+
+
+                <div class="imagecontainer menu flex flex-col justify-center
+                    h-[100vh] w-[100%] items-center">
+                    <p class="j1 p-10 text-white items-center">Je vous souhaite
+                        la bienvenue dans mon application météo.<br> Pour plus
+                        d'efficacité, je vous conseillerai de télécharger
+                        l'application mais il vous est tout de même possible de
+                        poursuivre votre recherche sur le net.</p>
+                    <button class="button text-bleuik bg-white py-3 px-10
+                        mt-5 hover:text-white hover:bg-transparent
+                        hover:border-2 hover:border-white transition-all"
+                        id="btnAdd">Installer</button>
+                    <button class="button text-white py-3 px-10 hover:border-2
+                        hover:border-white transition-all" id="btnNoAdd">Je
+                        reste sur le net</button>
+                </div>
 
                 <div class="mt-10 flex flex-col align-middle
                     partiesup">
@@ -140,9 +155,7 @@
         </div>
 
         <script src="js/jquery-3.6.1.min.js"></script>
-        <script src="service-worker.js"></script>
-        <script src="js/flowbite.js"></script>
-        <script src="js/script.js"></script>
+        <script src="/service-worker.js"></script>
         <script>
             // service worker
             if ('serviceWorker' in navigator) {
@@ -156,84 +169,56 @@
               console.log('CLIENT: service worker is not supported.');
             }
             
-            
-            const button = document.getElementById('notifications');
-            button.addEventListener('click', (e) => {
-                e.preventDefault();
-              Notification.requestPermission().then((result) => {
-                if (result === 'granted') {
-                  randomNotification();
+                   // Initialize deferredPrompt for use later to show browser install prompt.
+                let deferredPrompt;
+
+                window.addEventListener('beforeinstallprompt', (e) => {
+                    // Prevent the mini-infobar from appearing on mobile
+                    e.preventDefault();
+                    // Stash the event so it can be triggered later.
+                    deferredPrompt = e;
+                    // Update UI notify the user they can install the PWA
+                    showInstallPromotion();
+                    // Optionally, send analytics event that PWA install promo was shown.
+                    console.log('beforeinstallprompt event was fired: ');
+                })
+
+                // fonction qui montre le bouton isntallation
+                function showInstallPromotion() {
+                    console.log("ok on peut installer");
+
+                    $('.menu').show();
+
                 }
-              });
-            })
-            
-            
-            
-            function randomNotification() {
-              const randomItem = Math.floor(Math.random() * games.length);
-              const notifTitle = games[randomItem].name;
-              const notifBody = `Created by ${games[randomItem].author}.`;
-              const notifImg = `data/img/${games[randomItem].slug}.jpg`;
-              const options = {
-                body: notifBody,
-                icon: notifImg,
-              };
-              new Notification(notifTitle, options);
-              setTimeout(randomNotification, 5000); 
-            }
-            
-            
-            // Initialize deferredPrompt for use later to show browser install prompt.
-            let deferredPrompt;
-            
-            window.addEventListener('beforeinstallprompt', (e) => {
-              // Prevent the mini-infobar from appearing on mobile
-              e.preventDefault();
-              // Stash the event so it can be triggered later.
-              deferredPrompt = e;
-              // Update UI notify the user they can install the PWA
-              showInstallPromotion();
-              // Optionally, send analytics event that PWA install promo was shown.
-              console.log('beforeinstallprompt event was fired: ');
-            })
-            
-            
-            
-            function  showInstallPromotion() {
-             console.log("ok on peut installer");
-            
-               $('#btnAdd').show();
-               $('#btnNoAdd').hide();
-            
-            }
-            
-            var btnAdd = document.getElementById("btnAdd");
-            
-            btnAdd.addEventListener('click', (e) => {
-              // hide our user interface that shows our A2HS button
-              btnAdd.style.display = 'none';
-              // Show the prompt
-              deferredPrompt.prompt();
-              // Wait for the user to respond to the prompt
-              deferredPrompt.userChoice
-                .then((choiceResult) => {
-                  if (choiceResult.outcome === 'accepted') {
-                    console.log('User accepted the A2HS prompt');
-                  } else {
-                    console.log('User dismissed the A2HS prompt');
-                  }
-                  deferredPrompt = null;
+
+                var btnAdd = document.getElementById("btnAdd");
+                var banniere = document.querySelector(".menu");
+
+                btnAdd.addEventListener('click', (e) => {
+                    // hide our user interface that shows our A2HS button
+                    banniere.style.display = 'none';
+                    // Show the prompt
+                    deferredPrompt.prompt();
+                    // Wait for the user to respond to the prompt
+                    deferredPrompt
+                        .userChoice
+                        .then((choiceResult) => {
+                            if (choiceResult.outcome === 'accepted') {
+                                console.log('User accepted the A2HS prompt');
+                            } else {
+                                console.log('User dismissed the A2HS prompt');
+                            }
+                            deferredPrompt = null;
+                        });
                 });
-            });
-            
-            
-            var btnNoAdd = document.getElementById("btnNoAdd");
-            
-            btnNoAdd.addEventListener('click', (e) => {
-             alert("Installation uniquement possible sur Chromium et Android. Si vous ne voyez pas le bouton d'installation vous êtes probablement sur iOS sur mobile ou sur un navigateur non-Chromium sur Desktop.");
-            });
-            
-            
+                var btnNoAdd = document.getElementById("btnNoAdd");
+
+                btnNoAdd.addEventListener('click', (e) => {
+                    $('.menu').hide();
+                });
+
                 </script>
+        <script src="js/script.js"></script>
+
     </body>
 </html>
